@@ -1,0 +1,177 @@
+html,
+body{
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: sans-serif;
+
+    background-color: rgb(53, 60, 67);
+}
+/* Clock */
+.time-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    
+    width: 230px;
+    height: 150px;
+    
+    padding-left: 30px;
+    
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 24px;
+}
+
+/* Analog Clock */
+
+.acl-container{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.acl-background{
+    position: absolute;
+
+    height: 100px;
+    width: 100px;
+
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 55px;
+}
+.acl-line-v,
+.acl-line-h{
+    position: absolute;
+    background-color: aqua;
+
+    z-index: 1;
+}
+.acl-line-v{
+    height: 100px;
+    width: 2px;
+}
+.acl-line-h{
+    height: 2px;
+    width: 100px;
+}
+.acl-line-one,
+.acl-line-two,
+.acl-line-three,
+.acl-line-four{
+    background-color: white;
+
+    z-index: 1;
+}
+.acl-line-one{
+    position: absolute;
+    width: 100px;
+    height: 1px;
+
+    transform: rotate(30deg);
+}
+.acl-line-two{
+    position: absolute;
+    width: 100px;
+    height: 1px;
+
+    transform: rotate(-30deg);
+}
+.acl-line-three{
+    position: absolute;
+    width: 1px;
+    height: 100px;
+
+    transform: rotate(30deg);
+}
+.acl-line-four{
+    position: absolute;
+    width: 1px;
+    height: 100px;
+
+    transform: rotate(-30deg);
+}
+.acl-dot{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+
+    background-color: rgb(37, 42, 47);
+    border-radius: 40px;
+
+    z-index: 2;
+}
+.acl-dot-i{
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+
+    background-color: black;
+
+    z-index: 6;
+}
+.acl-seconds,
+.acl-minutes,
+.acl-hours{
+    position: absolute;
+
+    /* transition: all 0.1s ease-in-out; */
+    transition: all 1s linear;
+}
+.acl-seconds{
+    bottom: 10%;
+
+    width: 1px;
+    height: 45px;
+    border-radius: 2px;
+    
+    transform-origin: bottom;
+
+    background-color: lightcoral;
+    z-index: 5;
+}
+.acl-minutes{
+    bottom: 10%;
+
+    width: 1px;
+    height: 32px;
+    border-radius: 2px;
+
+    transform-origin: bottom;
+
+    background-color: green;
+    z-index: 4;
+}
+.acl-hours{
+    bottom: 10%;
+
+    width: 1px;
+    height: 25px;
+    border-radius: 2px;
+    
+    transform-origin: bottom;
+
+    background-color: white;
+    z-index: 3;
+}
+/* Right Side */
+/* Digital Clock - up */
+.dcl-time{
+    font-size: 24px;
+    font-weight: bold;
+
+    color: white;
+}
+/* Timer - down */
+.cl-timer{
+    font-size: 24px;
+    color: lightcoral;
+}
