@@ -13,24 +13,30 @@ body{
 
     background-color: rgb(53, 60, 67);
 }
-/* Clock */
+
+/* Containers */
 .time-container{
+    transform: scale(1);
+}
+
+.time-cl-container,
+.time-controls-container{
     display: flex;
     justify-content: space-around;
     align-items: center;
 
-    
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 24px;
+
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6);
+}
+
+.time-cl-container{    
     width: 230px;
     height: 150px;
     
     padding-left: 30px;
-    
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 24px;
 }
-
-/* Analog Clock */
-
 .acl-container{
     position: relative;
 
@@ -38,6 +44,18 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.time-controls-container{
+    visibility: hidden;
+
+    padding: 10px;
+    margin-top: 3%;
+    transform: scale(0.1);
+    opacity: 0.1;
+    transition: all 0.3s;
+}
+/* Clock */
+/* Analog Clock */
 .acl-background{
     position: absolute;
 
@@ -124,7 +142,7 @@ body{
     position: absolute;
 
     /* transition: all 0.1s ease-in-out; */
-    transition: all 1s linear;
+    transition: transform 1s linear;
 }
 .acl-seconds{
     bottom: 10%;
@@ -175,3 +193,47 @@ body{
     font-size: 24px;
     color: lightcoral;
 }
+
+/* Controls */
+.time-start-btn,
+.time-pause-btn,
+.time-stop-btn{
+    width: 4em;
+    height: 2em;
+    
+    border: none;
+    border-radius: 10px;
+    transition: opacity 0.5s;
+}
+
+.time-start-btn{
+    background-color: green;
+}
+.time-pause-btn{
+    background-color: lightseagreen;
+}
+.time-stop-btn{
+    background-color: rgb(211, 71, 71);
+}
+
+/* Hover */
+.time-container:hover .time-controls-container{
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.time-start-btn:hover,
+.time-pause-btn:hover,
+.time-stop-btn:hover{
+    opacity: 0.6;
+}
+
+/* Active */
+.time-start-btn:active,
+.time-pause-btn:active,
+.time-stop-btn:active{
+    opacity: 0.3;
+}
+
+/* Responsive */
