@@ -30,10 +30,10 @@ let digitalClock = setInterval(()=>{
 
 // timer
 let numOfPomodoros = 3;
-let timePerPomodoro = 25;
+let timePerPomodoro = 1;
 
-let miniBreakTime = 5;
-let bigBreakTime = 15;
+let miniBreakTime = 1;
+let bigBreakTime = 1;
 
 function pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime){
     const timerContainer = document.querySelector('.cl-timer');
@@ -59,27 +59,29 @@ function pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakT
     let breakTime;
     let firstRun = true;
     let finishTime;
-
-    let pomodoroProcess = setInterval(()=>{
+    pomodoroProcess = setInterval(()=>{
         if(!isBreak){
             if(firstRun){
                 let currentTime = new Date().getTime();
                 finishTime = new Date(currentTime + timePerPomodoro*60*1000).getTime();
                 firstRun = false;
             }
+
             let remainTime = timeLeft(finishTime);
 
-            timerContainer.style.color = 'lightcoral';
-            timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
-
-            if(remainTime <= 0 && finishedPomodoros !== numOfPomodoros){
+            if(remainTime.total <= 0 && finishedPomodoros !== numOfPomodoros){
                 finishedPomodoros++;
                 isBreak = true;
                 firstRun = true;
             }
-            else if(remainTime <=0 && finishedPomodoros === numOfPomodoros){
+            else if(remainTime.total <=0 && finishedPomodoros === numOfPomodoros){
                 timerContainer.style.color = 'green';
-                timerContainer.textContent = `Congrats! You have finished ${finishedPomoros} pomodoros!`;
+                timerContainer.style.fontSize = '12px';
+                timerContainer.textContent = `Congrats! You have finished ${finishedPomodoros} pomodoros!`;
+            }
+            else{
+                timerContainer.style.color = 'lightcoral';
+                timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
             }
 
         }
@@ -90,18 +92,24 @@ function pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakT
             else if(finishedPomodoros === Math.floor(numOfPomodoros/2)){
                 breakTime = bigBreakTime;
             }
-
-            let currentTime = new Date().getTime();
-            let finishTime = new Date(currentTime + breakTime*60*1000).getTime();
+            if(firstRun){
+                let currentTime = new Date().getTime();
+                finishTime = new Date(currentTime + breakTime*60*1000).getTime();
+                firstRun = false;
+            }
 
             let remainTime = timeLeft(finishTime);
 
-            timerContainer.style.color = 'green';
-            timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
-
-            if(remainTime <=0){
+            if(remainTime.total <=0){
                 isBreak = false;
+                firstRun = true;
+            }
+            else{
+                timerContainer.style.color = 'green';
+                timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
             }
         }
     }, 1000);
 }
+
+// pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);

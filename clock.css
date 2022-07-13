@@ -1,0 +1,285 @@
+
+/* Clock*/
+/* Containers */
+.time-container{
+    /* margin: 4em 2em; */
+    /* position: fixed;
+
+    top: 4em;
+    right: 2em; */
+
+    display: flex;
+    flex-direction: row;
+
+    transform: scale(1);
+}
+
+.time-cl-container,
+.time-controls-container,
+.time-addition-controls{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: #E5E9EC;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    border-radius: 24px;
+
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.234);
+    /* box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6); */
+}
+
+.time-cl-container{ 
+    width: 230px;
+    height: 150px;
+    
+    padding: 1px 20px;
+}
+.acl-container{
+    position: relative;
+
+    width: 60%;
+    height: 70%;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rs-container{
+    padding: 10px;
+
+    overflow-wrap: break-word;
+}
+
+.time-controls-container{
+    visibility: hidden;
+
+    padding: 10px;
+    margin-top: 3%;
+    transform: scale(0.1);
+    opacity: 0.1;
+    transition: all 0.3s;
+}
+.time-addition-controls{
+    height: 135px;
+
+    flex-direction: column;
+
+    visibility: hidden;
+
+    padding: 10px;
+    margin-right: 3%;
+    transform: scale(0.1);
+    opacity: 0.1;
+    transition: all 0.3s;
+}
+/* Analog Clock */
+.acl-background{
+    position: absolute;
+
+    height: 100px;
+    width: 100px;
+    
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 55px;
+}
+.acl-line-v,
+.acl-line-h{
+    position: absolute;
+    background-color: aqua;
+
+    z-index: 1;
+}
+.acl-line-v{
+    height: 100px;
+    width: 2px;
+}
+.acl-line-h{
+    height: 2px;
+    width: 100px;
+}
+.acl-line-one,
+.acl-line-two,
+.acl-line-three,
+.acl-line-four{
+    background-color: white;
+
+    z-index: 1;
+}
+.acl-line-one{
+    position: absolute;
+    width: 100px;
+    height: 1px;
+
+    transform: rotate(30deg);
+}
+.acl-line-two{
+    position: absolute;
+    width: 100px;
+    height: 1px;
+
+    transform: rotate(-30deg);
+}
+.acl-line-three{
+    position: absolute;
+    width: 1px;
+    height: 100px;
+
+    transform: rotate(30deg);
+}
+.acl-line-four{
+    position: absolute;
+    width: 1px;
+    height: 100px;
+
+    transform: rotate(-30deg);
+}
+.acl-dot{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+
+    background-color: white;
+    /* background-color: rgb(37, 42, 47); */
+    border-radius: 40px;
+
+    z-index: 2;
+}
+.acl-dot-i{
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+
+    background-color: black;
+
+    z-index: 6;
+}
+.acl-seconds,
+.acl-minutes,
+.acl-hours{
+    position: absolute;
+    bottom: 50%;
+
+    transition: transform 1s linear;
+}
+.acl-seconds{
+    width: 1px;
+    height: 45px;
+    border-radius: 2px;
+    
+    transform-origin: bottom;
+
+    background-color: red;
+    /* background-color: lightcoral; */
+    z-index: 5;
+}
+.acl-minutes{
+    width: 1px;
+    height: 32px;
+    border-radius: 2px;
+
+    transform-origin: bottom;
+
+    background-color: green;
+    z-index: 4;
+}
+.acl-hours{
+    width: 1px;
+    height: 25px;
+    border-radius: 2px;
+    
+    transform-origin: bottom;
+
+    background-color: black;
+    /* background-color: white; */
+    z-index: 3;
+}
+/* Right Side */
+/* Digital Clock - up */
+.dcl-time{
+    font-size: 24px;
+    font-weight: bold;
+
+    color: rgb(232, 82, 82);
+    /* color: white; */
+}
+/* Timer - down */
+.cl-timer{
+    font-size: 24px;
+    color: lightcoral;
+}
+
+/* Controls */
+.time-start-btn,
+.time-pause-btn,
+.time-stop-btn,
+.time-screen-btn,
+.time-sound-btn{
+    border: none;
+    border-radius: 10px;
+    transition: opacity 0.5s;
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!color */
+.time-start-btn,
+.time-pause-btn,
+.time-stop-btn,
+.time-sound-btn{
+    color: white;
+}
+
+.time-start-btn,
+.time-pause-btn,
+.time-stop-btn{
+    width: 4em;
+    height: 2em;
+}
+
+.time-start-btn{
+    background-color: green;
+}
+.time-pause-btn{
+    background-color: lightseagreen;
+}
+.time-stop-btn{
+    background-color: rgb(211, 71, 71);
+}
+
+.time-screen-btn,
+.time-sound-btn{
+    width: 2em;
+    height: 2em;
+}
+
+.time-screen-btn{
+    background-color: white;
+}
+.time-sound-btn{
+    background-color: lightpink;
+}
+
+/* Hover */
+.time-container:hover .time-controls-container,
+.time-container:hover .time-addition-controls{
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+.time-start-btn:hover,
+.time-pause-btn:hover,
+.time-stop-btn:hover,
+.time-screen-btn:hover,
+.time-sound-btn:hover{
+    opacity: 0.6;
+}
+
+/* Active */
+.time-start-btn:active,
+.time-pause-btn:active,
+.time-stop-btn:active{
+    opacity: 0.3;
+}

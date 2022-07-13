@@ -6,41 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cherry-timer</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./clock.css">
     <script src="https://kit.fontawesome.com/c931cd2a0c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="time-container">
-        <div class="time-cl-container">
-            <div class="acl-container">
-                <div class="acl-background"></div>
-        
-                <div class="acl-line-v"></div>
-                <div class="acl-line-h"></div>
-        
-                <div class="acl-line-one"></div>
-                <div class="acl-line-two"></div>
-                <div class="acl-line-three"></div>
-                <div class="acl-line-four"></div>
-        
-                <div class="acl-dot"></div>
-                <div class="acl-dot-i"></div>
-        
-                <div class="acl-seconds"></div>
-                <div class="acl-minutes"></div>
-                <div class="acl-hours"></div>
+    <header>
+        <div><img class="head-cherry-logo" src="./img/cherry.png"></div>
+        <div class="head-change-mode-btn"><i class="fa-solid fa-circle-half-stroke"></i></div>
+    </header>
+    <main>
+        <div class="upper-container">
+            <div class="pm-current">
+                pm-current
             </div>
-            <div class="rs-container">
-                <div class="dcl-time">00:00:00</div>
-                <div class="cl-timer">--:--</div>
-                <!-- <div class="cl-pomodoro">pomodoro - 4/6</div> -->
+            <div class="time-container">
+                <div class="time-addition-controls">
+                    <button class="time-screen-btn"><i class="fa-solid fa-expand"></i></button>
+                    <button class="time-sound-btn"><i class="fa-solid fa-volume-high"></i></i></button>
+                </div>
+                <div>
+                    <div class="time-cl-container">
+                        <div class="acl-container">
+                            <div class="acl-background"></div>
+                    
+                            <div class="acl-line-v"></div>
+                            <div class="acl-line-h"></div>
+                    
+                            <div class="acl-line-one"></div>
+                            <div class="acl-line-two"></div>
+                            <div class="acl-line-three"></div>
+                            <div class="acl-line-four"></div>
+                    
+                            <div class="acl-dot"></div>
+                            <div class="acl-dot-i"></div>
+                    
+                            <div class="acl-seconds"></div>
+                            <div class="acl-minutes"></div>
+                            <div class="acl-hours"></div>
+                        </div>
+                        <div class="rs-container">
+                            <div class="dcl-time">00:00:00</div>
+                            <div class="cl-timer">--:--</div>
+                            <!-- <div class="cl-pomodoro">pomodoro - 4/6</div> -->
+                        </div>
+                    </div>
+                    <div class="time-controls-container">
+                        <button class="time-start-btn"><i class="fa-solid fa-play"></i></button>
+                        <button class="time-pause-btn"><i class="fa-solid fa-pause"></i></button>
+                        <button class="time-stop-btn"><i class="fa-solid fa-stop"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="time-controls-container">
-            <button class="time-start-btn"><i class="fa-solid fa-play"></i></button>
-            <button class="time-pause-btn"><i class="fa-solid fa-pause"></i></button>
-            <button class="time-stop-btn"><i class="fa-solid fa-stop"></i></button>
+        <div class="lower-container">
+            <div class="pm-passed-skipped">
+                <div class="pm-passed-container">pm-passed
+                    <div id="passed-cont"></div>
+                </div>
+                <div class="pm-skipped-container">pm-skipped
+                    <div id="skipped-cont"></div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
 <script src="./index.js" defer></script>
 <script src="./clock.js" defer></script>

@@ -5,235 +5,90 @@ body{
     margin: 0;
     padding: 0;
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
     font-family: sans-serif;
 
-    background-color: rgb(53, 60, 67);
+    background-color: white;
+    /* background-color: rgb(53, 60, 67); */
 }
 
+/* Page */
 /* Containers */
-.time-container{
-    transform: scale(1);
-}
+header{
+    position: fixed;
+    
+    top:0;
+    left:0;
+    right:0;
 
-.time-cl-container,
-.time-controls-container{
+    z-index: 7;
+    
+    height: 3.5em;
+
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
     align-items: center;
 
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 24px;
-
-    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6);
+    background-color: rgb(232, 82, 82);
 }
 
-.time-cl-container{    
-    width: 230px;
-    height: 150px;
-    
-    padding-left: 30px;
-}
-.acl-container{
-    position: relative;
-
+main{
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 1em 0em 1em;
+}
+
+.upper-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 4.5em 2em 1em 2em;
+}
+.lower-container{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
-.time-controls-container{
-    visibility: hidden;
-
-    padding: 10px;
-    margin-top: 3%;
-    transform: scale(0.1);
-    opacity: 0.1;
-    transition: all 0.3s;
-}
-/* Clock */
-/* Analog Clock */
-.acl-background{
-    position: absolute;
-
-    height: 100px;
-    width: 100px;
-
-    background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 55px;
-}
-.acl-line-v,
-.acl-line-h{
-    position: absolute;
-    background-color: aqua;
-
-    z-index: 1;
-}
-.acl-line-v{
-    height: 100px;
-    width: 2px;
-}
-.acl-line-h{
-    height: 2px;
-    width: 100px;
-}
-.acl-line-one,
-.acl-line-two,
-.acl-line-three,
-.acl-line-four{
+/* Header */
+.head-cherry-logo{
+    width: 2.8em;
+    margin-left: 1em;
+    border-radius: 23px;
     background-color: white;
-
-    z-index: 1;
 }
-.acl-line-one{
-    position: absolute;
-    width: 100px;
-    height: 1px;
 
-    transform: rotate(30deg);
-}
-.acl-line-two{
-    position: absolute;
-    width: 100px;
-    height: 1px;
-
-    transform: rotate(-30deg);
-}
-.acl-line-three{
-    position: absolute;
-    width: 1px;
-    height: 100px;
-
-    transform: rotate(30deg);
-}
-.acl-line-four{
-    position: absolute;
-    width: 1px;
-    height: 100px;
-
-    transform: rotate(-30deg);
-}
-.acl-dot{
-    position: absolute;
-    height: 80px;
-    width: 80px;
-
-    background-color: rgb(37, 42, 47);
-    border-radius: 40px;
-
-    z-index: 2;
-}
-.acl-dot-i{
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    border-radius: 2px;
-
-    background-color: black;
-
-    z-index: 6;
-}
-.acl-seconds,
-.acl-minutes,
-.acl-hours{
-    position: absolute;
-
-    /* transition: all 0.1s ease-in-out; */
-    transition: transform 1s linear;
-}
-.acl-seconds{
-    bottom: 10%;
-
-    width: 1px;
-    height: 45px;
-    border-radius: 2px;
-    
-    transform-origin: bottom;
-
-    background-color: lightcoral;
-    z-index: 5;
-}
-.acl-minutes{
-    bottom: 10%;
-
-    width: 1px;
-    height: 32px;
-    border-radius: 2px;
-
-    transform-origin: bottom;
-
-    background-color: green;
-    z-index: 4;
-}
-.acl-hours{
-    bottom: 10%;
-
-    width: 1px;
-    height: 25px;
-    border-radius: 2px;
-    
-    transform-origin: bottom;
-
-    background-color: white;
-    z-index: 3;
-}
-/* Right Side */
-/* Digital Clock - up */
-.dcl-time{
-    font-size: 24px;
-    font-weight: bold;
-
+.head-change-mode-btn{
+    margin: 1em;
+    font-size: 2em;
     color: white;
 }
-/* Timer - down */
-.cl-timer{
-    font-size: 24px;
-    color: lightcoral;
+/* Main */
+
+.pm-current{
+    width: 64%;
+    height: 20em;
+    /* min-width: 20em; */
+    margin: 0em 1em 0em 0em;
+    border-radius: 24px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+    background-color: #E5E9EC;
 }
 
-/* Controls */
-.time-start-btn,
-.time-pause-btn,
-.time-stop-btn{
-    width: 4em;
-    height: 2em;
-    
-    border: none;
-    border-radius: 10px;
-    transition: opacity 0.5s;
+.pm-passed-container{
+    height: 3em;
+    margin-top: 1em;
+    border-radius: 12px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+    background-color: #E5E9EC;
 }
 
-.time-start-btn{
-    background-color: green;
+.pm-skipped-container{
+    height: 3em;
+    margin-top: 1em;
+    border-radius: 12px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+    background-color: #E5E9EC;
 }
-.time-pause-btn{
-    background-color: lightseagreen;
-}
-.time-stop-btn{
-    background-color: rgb(211, 71, 71);
-}
-
-/* Hover */
-.time-container:hover .time-controls-container{
-    visibility: visible;
-    transform: scale(1);
-    opacity: 1;
-}
-
-.time-start-btn:hover,
-.time-pause-btn:hover,
-.time-stop-btn:hover{
-    opacity: 0.6;
-}
-
-/* Active */
-.time-start-btn:active,
-.time-pause-btn:active,
-.time-stop-btn:active{
-    opacity: 0.3;
-}
-
-/* Responsive */
