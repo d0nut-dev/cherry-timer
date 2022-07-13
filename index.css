@@ -1,6 +1,6 @@
 html,
 body{
-    height: 100%;
+    height: 100vh;
 
     margin: 0;
     padding: 0;
@@ -17,10 +17,10 @@ header{
     position: fixed;
     
     top:0;
-    left:-1.5em;
+    left:0;
     right:0;
 
-    padding: 0em 1.5em;
+    padding: 0em 1em;
 
     z-index: 7;
     
@@ -77,6 +77,8 @@ main{
     border-radius: 24px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
     background-color: #E5E9EC;
+    
+    font-size: 1rem;
 }
 
 .pm-passed-container{
