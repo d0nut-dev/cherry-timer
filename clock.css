@@ -300,6 +300,16 @@
 }
 
 /* Media queries */
+
+@media (max-width: 715px){
+    .time-controls-container,
+    .time-addition-controls{
+        visibility: visible;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 @media (hover: none) and (pointer: coarse){
     .time-controls-container,
     .time-addition-controls{
