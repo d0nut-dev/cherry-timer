@@ -301,7 +301,8 @@
 
 /* Media queries */
 @media (hover: none) and (pointer: coarse){
-    .time-controls-container{
+    .time-controls-container,
+    .time-addition-controls{
         visibility: visible;
         transform: scale(1);
         opacity: 1;
