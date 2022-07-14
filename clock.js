@@ -37,8 +37,6 @@ let bigBreakTime = 1;
 
 const timerContainer = document.querySelector('.cl-timer');
 
-// timerContainer.textContent = timePerPomodoro + ':00';
-
 function timeLeft(finishTime){
     const total = finishTime - Date.parse(new Date());
     const sec = Math.floor((total/1000)%60);
