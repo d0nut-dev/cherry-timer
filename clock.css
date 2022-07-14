@@ -300,8 +300,7 @@
 }
 
 /* Media queries */
-
-@media (hover: none){
+@media (hover: none) and (pointer: coarse){
     .time-controls-container{
         visibility: visible;
         transform: scale(1);
