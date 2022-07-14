@@ -55,9 +55,11 @@ main{
 }
 
 /* Header */
+.cherry-logo-container{
+    display: flex;
+}
 .head-cherry-logo{
     width: 2.8em;
-    margin-left: 1em;
     border-radius: 23px;
     background-color: white;
 }
@@ -98,6 +100,16 @@ main{
 /* Media queries */
 
 @media (max-width: 715px) {
+    header{
+        height: 2.5em;
+    }
+    .head-cherry-logo{
+        width: 2.1em;
+    }
+    .head-change-mode-btn{
+        font-size: 1.8em;
+    }
+
     .upper-container{
         flex-direction: column-reverse;
         align-items: center;
