@@ -251,6 +251,8 @@
 .time-sound-btn{
     width: 2em;
     height: 2em;
+
+    text-align: center;
 }
 
 .time-screen-btn{
@@ -282,4 +284,15 @@
 .time-pause-btn:active,
 .time-stop-btn:active{
     opacity: 0.3;
+}
+
+/* Media queries */
+
+@media (not(hover: hover)){
+    .time-controls-container{
+        visibility: visible;
+        transform: scale(1);
+        opacity: 1;
+        transition: all 0.3s;
+    }
 }
