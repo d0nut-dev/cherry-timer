@@ -53,59 +53,78 @@ function leadingZero(un){
 }
 
 let finishedPomodoros = 0;
+
 let isBreak = false;
 let breakTime;
 let firstRun = true;
+
 let finishTime;
+let remainTime;
+
+let isPaused = false;
+let isUnpaused = false;
 
 function pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime){
-    if(!isBreak){
-        if(firstRun){
-            let currentTime = new Date().getTime();
-            finishTime = new Date(currentTime + timePerPomodoro*60*1000).getTime();
-            firstRun = false;
+    if(!isPaused){
+        if(!isBreak){
+            if(firstRun){
+                let currentTime = new Date().getTime();
+                finishTime = new Date(currentTime + timePerPomodoro*60*1000).getTime();
+                firstRun = false;
+            }
+            if(isUnpaused){
+                let currentTime = new Date().getTime();
+                finishTime = new Date(currentTime + remainTime.total).getTime();
+                isUnpaused = false;
+            }
+    
+            remainTime = timeLeft(finishTime);
+    
+            if(remainTime.total <= 0 && finishedPomodoros !== numOfPomodoros){
+                finishedPomodoros++;
+                isBreak = true;
+                firstRun = true;
+            }
+            else if(remainTime.total <= 0 && finishedPomodoros === numOfPomodoros){
+                timerContainer.style.color = 'green';
+                timerContainer.style.fontSize = '12px';
+                timerContainer.textContent = `Congrats! You have finished ${finishedPomodoros} pomodoros!`;
+            }
+            else{
+                timerContainer.style.color = 'lightcoral';
+                timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
+            }
+            remainTime = timeLeft(finishTime);
         }
-
-        let remainTime = timeLeft(finishTime);
-
-        if(remainTime.total <= 0 && finishedPomodoros !== numOfPomodoros){
-            finishedPomodoros++;
-            isBreak = true;
-            firstRun = true;
-        }
-        else if(remainTime.total <=0 && finishedPomodoros === numOfPomodoros){
-            timerContainer.style.color = 'green';
-            timerContainer.style.fontSize = '12px';
-            timerContainer.textContent = `Congrats! You have finished ${finishedPomodoros} pomodoros!`;
-        }
-        else{
-            timerContainer.style.color = 'lightcoral';
-            timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
-        }
-
-    }
-    else if (isBreak){
-        if(finishedPomodoros === Math.floor(numOfPomodoros/2)){
-            breakTime = miniBreakTime;
-        }
-        else if(finishedPomodoros === Math.floor(numOfPomodoros/2)){
-            breakTime = bigBreakTime;
-        }
-        if(firstRun){
-            let currentTime = new Date().getTime();
-            finishTime = new Date(currentTime + breakTime*60*1000).getTime();
-            firstRun = false;
-        }
-
-        let remainTime = timeLeft(finishTime);
-
-        if(remainTime.total <=0){
-            isBreak = false;
-            firstRun = true;
-        }
-        else{
-            timerContainer.style.color = 'green';
-            timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
+        else if (isBreak){
+            if(finishedPomodoros === Math.floor(numOfPomodoros/2)){
+                breakTime = miniBreakTime;
+            }
+            else if(finishedPomodoros === Math.floor(numOfPomodoros/2)){
+                breakTime = bigBreakTime;
+            }
+            if(firstRun){
+                let currentTime = new Date().getTime();
+                finishTime = new Date(currentTime + breakTime*60*1000).getTime();
+                firstRun = false;
+            }
+            if(isUnpaused){
+                let currentTime = new Date().getTime();
+                finishTime = new Date(currentTime + remainTime.total).getTime();
+                isUnpaused = false;
+            }
+    
+            remainTime = timeLeft(finishTime);
+    
+            if(remainTime.total <= 0){
+                isBreak = false;
+                firstRun = true;
+            }
+            else{
+                timerContainer.style.color = 'green';
+                timerContainer.textContent = leadingZero(remainTime.min) + ':' + leadingZero(remainTime.sec);
+            }
+            remainTime = timeLeft(finishTime);
         }
     }
 }
@@ -113,9 +132,17 @@ function pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakT
 // pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
 
 const startButton = document.getElementById('timer-start');
+const pauseButton = document.getElementById('timer-pause');
 
-var timerCheckFlag = false;
 startButton.onclick = function(){
+    if(isPaused){
+        isPaused = false;
+        isUnpaused = true;
+    }
     pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
-    setInterval(pomodoroTimer, 1000, numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
+    setInterval(pomodoroTimer, 500, numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
+}
+
+pauseButton.onclick = function(){
+    isPaused = true;
 }
