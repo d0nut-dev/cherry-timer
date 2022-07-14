@@ -65,7 +65,7 @@ main{
 }
 
 .head-change-mode-btn{
-    margin: 1em;
+    margin-left: 1em;
     font-size: 2em;
     color: white;
 }
@@ -101,13 +101,14 @@ main{
 
 @media (max-width: 715px) {
     header{
-        height: 2.5em;
+        height: 2.7em;
     }
     .head-cherry-logo{
         width: 2.1em;
     }
     .head-change-mode-btn{
-        font-size: 1.8em;
+        font-size: 1.9em;
+        margin-top: 2px;
     }
 
     .upper-container{
@@ -124,7 +125,6 @@ main{
     .pm-passed-container,
     .pm-skipped-container{
         min-width: 20em;
-        /* margin:0; */
     }
     .pm-passed-skipped{
         display: flex;
