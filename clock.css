@@ -252,6 +252,19 @@
     width: 2em;
     height: 2em;
 
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.fa-solid fa-pause{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.fa-solid fa-stop{
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
@@ -288,11 +301,10 @@
 
 /* Media queries */
 
-@media (not(hover: hover)){
+@media (hover: none){
     .time-controls-container{
         visibility: visible;
         transform: scale(1);
         opacity: 1;
-        transition: all 0.3s;
     }
 }
