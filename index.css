@@ -28,9 +28,15 @@ header{
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 
     background-color: rgb(232, 82, 82);
+}
+
+.hd-container{
+    display: flex;
+    flex-direction: row;
 }
 
 main{
@@ -55,17 +61,23 @@ main{
 }
 
 /* Header */
-.cherry-logo-container{
-    display: flex;
-}
 .head-cherry-logo{
     width: 2.8em;
+    display: flex;
     border-radius: 23px;
     background-color: white;
 }
 
 .head-change-mode-btn{
+    display: flex;
+    align-items: center;
     margin-left: 1em;
+    font-size: 2em;
+    color: white;
+}
+
+.head-schedule-btn{
+    margin-left: 3em;
     font-size: 2em;
     color: white;
 }
@@ -97,20 +109,50 @@ main{
     background-color: #E5E9EC;
 }
 
+.pm-plus{
+    position: fixed;
+    bottom: 1rem;
+    right: 0.2rem;
+
+    padding: 0.16em 0.3em;
+    
+    font-size: 40px;
+    color: white;
+    border-radius: 55px;
+    background-color: rgb(232, 82, 82);
+}
+/* Clear button styles */
+.head-main-btn,
+.head-change-mode-btn,
+.head-schedule-btn,
+.pm-plus{
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.head-main-btn,
+.head-change-mode-btn,
+.head-schedule-btn{
+    background: none;
+}
+/* Hover */
+.head-cherry-logo:hover,
+.head-change-mode-btn:hover,
+.head-schedule-btn:hover{
+    opacity: 0.8;
+}
+
+/* Active */
+.head-cherry-logo:active,
+.head-change-mode-btn:active,
+.head-schedule-btn:active,
+.pm-plus:active{
+    opacity: 0.5;
+}
+
 /* Media queries */
-
 @media (max-width: 715px) {
-    header{
-        height: 2.7em;
-    }
-    .head-cherry-logo{
-        width: 2.1em;
-    }
-    .head-change-mode-btn{
-        font-size: 1.9em;
-        margin-top: 2px;
-    }
-
     .upper-container{
         flex-direction: column-reverse;
         align-items: center;

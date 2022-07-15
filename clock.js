@@ -139,10 +139,33 @@ startButton.onclick = function(){
         isPaused = false;
         isUnpaused = true;
     }
+    //write fuction to create pomodoro
+    // pmCurrent.numOfPomodoros = numOfPomodoros;
+    // pmCurrent.timePerPomodoro = timePerPomodoro;
+    // pmCurrent.miniBreakTime = miniBreakTime;
+    // pmCurrent.bigBreakTime = bigBreakTime;
+    
     pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
     setInterval(pomodoroTimer, 500, numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
 }
 
 pauseButton.onclick = function(){
     isPaused = true;
+}
+
+let pmCurrent = {
+    numOfPomodoros,
+    timePerPomodoro,
+    miniBreakTime,
+    bigBreakTime,
+
+    isPaused,
+    
+    startTime,
+    isFinished,
+    finishTime,
+    
+    finishedPomodoros,
+    expirationDate,
+    isExpired
 }

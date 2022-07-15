@@ -48,7 +48,7 @@
     align-items: center;
 }
 .rs-container{
-    padding: 10px;
+    padding: 0.7em;
 
     overflow-wrap: break-word;
 }
@@ -56,7 +56,7 @@
 .time-controls-container{
     visibility: hidden;
 
-    padding: 10px;
+    padding: 0.7rem;
     margin-top: 3%;
     transform: scale(0.1);
     opacity: 0.1;
@@ -253,19 +253,14 @@
     height: 2em;
 
     margin: 0;
-    padding: 0;
-    text-align: center;
+    padding: 1em;
 }
 
-.fa-solid fa-pause{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-.fa-solid fa-stop{
-    margin: 0;
-    padding: 0;
-    text-align: center;
+.time-screen-btn,
+.time-sound-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .time-screen-btn{
@@ -289,6 +284,7 @@
 .time-stop-btn:hover,
 .time-screen-btn:hover,
 .time-sound-btn:hover{
+    cursor: pointer;
     opacity: 0.6;
 }
 
@@ -302,6 +298,28 @@
 /* Media queries */
 
 @media (max-width: 715px){
+    .time-container{
+        flex-direction: column;
+    }
+    
+    .time-addition-controls{
+        height: 1.5em;
+        margin: 0 0 3% 0;
+        flex-direction: row;
+        padding: 0.7em;
+    }
+
+    .time-start-btn,
+    .time-pause-btn,
+    .time-stop-btn,
+    .time-screen-btn,
+    .time-sound-btn{
+        width: 4.5em;
+        height: 2.8em;
+
+        border-radius: 18px;
+    }
+
     .time-controls-container,
     .time-addition-controls{
         visibility: visible;
