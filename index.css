@@ -153,6 +153,12 @@ main{
 
 /* Media queries */
 @media (max-width: 715px) {
+    .head-cherry-logo{
+        width: 3em;
+    }
+    .head-change-mode-btn{
+        margin-left: 0.6em; 
+    }
     .upper-container{
         flex-direction: column-reverse;
         align-items: center;
