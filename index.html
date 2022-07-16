@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./clock.css">
     <link rel="apple-touch-icon" href="./img/cherry.png">
     <script src="https://kit.fontawesome.com/c931cd2a0c.js" crossorigin="anonymous"></script>
+    <script src="./index.js" defer></script>
+    <script src="./clock.js" defer></script>
 </head>
 <body>
     <header>
@@ -64,18 +66,16 @@
             </div>
         </div>
         <div class="lower-container">
-            <div class="pm-passed-skipped">
-                <div class="pm-passed-container">pm-passed
+            <div class="pm-container">
+                <div class="pm-subcontainer">pm-passed
                     <div id="passed-cont"></div>
                 </div>
-                <div class="pm-skipped-container">pm-skipped
-                    <div id="skipped-cont"></div>
+                <div class="pm-subcontainer">pm-skipped
+                    <div id="delayed-cont"></div>
                 </div>
             </div>
         </div>
     </main>
-    <button class="pm-plus"><i class="fa-solid fa-plus"></i></button>
+    <button class="pm-plus" id="pm-plus"><i class="fa-solid fa-plus"></i></button>
 </body>
-<script src="./index.js" defer></script>
-<script src="./clock.js" defer></script>
 </html>
