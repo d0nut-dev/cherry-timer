@@ -9,35 +9,59 @@ window.onresize();
 
 
 // Model
+let sessions;
+let todaysSessions;
+let passedSessions;
+
 
 // Controller
 
 // View
+function addRangeInput(title, shortTitle ,min, max, value){
+    const rangeCont = document.createElement('div');
+    const rangeTitle = document.createElement('div');
+    const rangeInput = document.createElement('input');
+
+    rangeTitle.textContent = title;
+    rangeInput.type = 'range';
+    rangeInput.min = min;
+    rangeInput.max = max;
+    rangeInput.value = value;
+    rangeInput.id = 'range-' + shortTitle;
+
+    rangeCont.classList.add('conf-pm');
+
+    rangeCont.appendChild(rangeTitle);
+    rangeCont.appendChild(rangeInput);
+
+    modalConfigsCont.appendChild(rangeCont);
+}
+
+function addWeekDayButton(num, shortName){
+    const wdbutton = document.createElement('button');
+
+    wdbutton.textContent = shortName;
+    wdbutton.id = 'wdb-' + num;
+
+    wdbutton.classList.add('add-weekday-btn');
+
+    dayOfWeekContainer.appendChild(wdbutton);
+}
+
+const modalConfigsCont = document.createElement('div');
+const dayOfWeekContainer = document.createElement('div');
 function addSession(){
     const modalContainer = document.createElement('div');
     const modal = document.createElement('form');
 
     const modalBody = document.createElement('div');
-    const modalButtons = document.createElement('div');
+    // const modalButtons = document.createElement('div');
 
     const modalHeader = document.createElement('div');
-    const modalConfigsCont = document.createElement('div');
     
     const confPmNumCont = document.createElement('div');
     const confPmNumContDesc = document.createElement('div');
     const confPmNumContInput = document.createElement('input');
-
-    const confTimePerPm = document.createElement('div');
-    const confTimePerPmDesc = document.createElement('div');
-    const confTimePerPmInput = document.createElement('input');
-
-    const confMiniBreak = document.createElement('div');
-    const confMiniBreakDesc = document.createElement('div');
-    const confMiniBreakInput = document.createElement('input');
-
-    const confBigBreak = document.createElement('div');
-    const confBigBreakDesc = document.createElement('div');
-    const confBigBreakInput = document.createElement('input');
     
     modalHeader.textContent = 'Add session';
 
@@ -47,56 +71,36 @@ function addSession(){
     confPmNumContInput.min = 3;
     confPmNumContInput.max = 45;
 
-    confTimePerPmDesc.textContent = 'Time per Pomodoro';
-    confTimePerPmInput.type = 'range';
-    confTimePerPmInput.min = 10;
-    confTimePerPmInput.max = 60;
-    confTimePerPmInput.value = 25;
-
-    confMiniBreakDesc.textContent = 'Short break';
-    confMiniBreakInput.type = 'range';
-    confMiniBreakInput.min = 1;
-    confMiniBreakInput.max = 45;
-    confMiniBreakInput.value = 5;
-
-    confBigBreakDesc.textContent = 'Big break';
-    confBigBreakInput.type = 'range';
-    confBigBreakInput.min = 1;
-    confBigBreakInput.max = 45;
-    confBigBreakInput.value = 5;
-
-    
     modalContainer.classList.add('modal-cont');
     modal.classList.add('modal');
     modalHeader.classList.add('modal-head');
     modalConfigsCont.classList.add('modal-configs');
     confPmNumCont.classList.add('conf-pm-num');
-    confTimePerPm.classList.add('conf-pm');
-    confMiniBreak.classList.add('conf-pm');
-    confBigBreak.classList.add('conf-pm');
+    dayOfWeekContainer.classList.add('conf-pm-num');
 
     confPmNumCont.appendChild(confPmNumContDesc);
     confPmNumCont.appendChild(confPmNumContInput);
 
-    confTimePerPm.appendChild(confTimePerPmDesc);
-    confTimePerPm.appendChild(confTimePerPmInput);
-
-    confMiniBreak.appendChild(confMiniBreakDesc);
-    confMiniBreak.appendChild(confMiniBreakInput);
-
-    confBigBreak.appendChild(confBigBreakDesc);
-    confBigBreak.appendChild(confBigBreakInput);
-    
     modalConfigsCont.appendChild(confPmNumCont);
-    modalConfigsCont.appendChild(confTimePerPm);
-    modalConfigsCont.appendChild(confMiniBreak);
-    modalConfigsCont.appendChild(confBigBreak);
 
+    addRangeInput('Time per Pomodoro', 'timeperpm', 10, 60, 25);
+    addRangeInput('Short break', 'shortbreak', 1, 45, 5);
+    addRangeInput('Long break', 'longbreak', 1, 45, 5);
+
+    addWeekDayButton(0, 'sun');
+    addWeekDayButton(1, 'mon');
+    addWeekDayButton(2, 'tue');
+    addWeekDayButton(3, 'wed');
+    addWeekDayButton(4, 'thu');
+    addWeekDayButton(5, 'fri');
+    addWeekDayButton(6, 'sat');
+
+    modalConfigsCont.appendChild(dayOfWeekContainer);
     modalBody.appendChild(modalHeader);
     modalBody.appendChild(modalConfigsCont);
 
     modal.appendChild(modalBody);
-    modal.appendChild(modalButtons);
+    // modal.appendChild(modalButtons);
     modalContainer.appendChild(modal);
     document.body.appendChild(modalContainer);
 }
