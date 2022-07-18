@@ -89,21 +89,35 @@ main{
     background-color: rgb(232, 82, 82);
 }
 .modal-configs{
-    padding: 0.5em;
+    /* height: 20em; */
+    padding: 0 0.5em;
     
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.conf-pm,
+.conf-pm-num{
+    height: 3em;
+    width: 16em;
 
-.conf-pm{
-    /* width: 10em; */
+    margin: 0.7em 0;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+
+    border-radius: 0.8em;
+    background-color: #E5E9EC;
+}
+.conf-pm input[type="range"]{
+    width: 16em;
+}
+.conf-pm-num{
+    flex-direction: row;
+    justify-content: center;
 }
 /* Header */
 .head-cherry-logo{
