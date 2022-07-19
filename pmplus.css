@@ -75,6 +75,10 @@
     border-radius: 0.5em;
 }
 .conf-checkbox-cont{
+    height: 1.5em;
+
+    /* padding: 1em 0; */
+
     flex-direction: row;
     justify-content: center;
 }
@@ -95,15 +99,22 @@
 
 .modal-cancel-button, 
 .modal-apply-button{
-    width: 8rem;
-    height: 4rem;
+    width: 9rem;
+    height: 3rem;
 
-    margin: 1rem 0.5rem;
+    margin: 1rem 0.25rem;
 
-    font-size: 1.2em;
+    font-size: 1rem;
+    color: white;
 
     border: none;
     border-radius: 3rem;
+}
+.modal-cancel-button{
+    background-color: rgb(177, 76, 76);
+}
+.modal-apply-button{
+    background-color: rgb(68, 156, 68);
 }
 /* Hover */
 .conf-dow-c button:hover{

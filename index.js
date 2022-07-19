@@ -99,6 +99,9 @@ function addSession(){
     addRangeInput('Short break', 'shortbreak', 1, 45, 5);
     addRangeInput('Long break', 'longbreak', 1, 45, 5);
 
+    checkboxRepeatingDesc.textContent = 'Repeating';
+    checkboxRepeatingInput.type = 'checkbox';
+
     addWeekDayButton(0, 'Wun');
     addWeekDayButton(1, 'Mon');
     addWeekDayButton(2, 'Tue');
@@ -109,10 +112,12 @@ function addSession(){
 
     cancelButton.textContent = 'Cancel';
     applyButton.textContent = 'Add session';
+    
+    checkboxContainer.appendChild(checkboxRepeatingDesc);
+    checkboxContainer.appendChild(checkboxRepeatingInput);
 
     modalApply.appendChild(cancelButton);
     modalApply.appendChild(applyButton);
-
     modalConfigsCont.appendChild(checkboxContainer);
     modalConfigsCont.appendChild(dayOfWeekContainer);
     modal.appendChild(modalHeader);
