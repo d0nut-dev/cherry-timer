@@ -142,7 +142,8 @@ main{
 }
 .conf-dow-c button{
     /* width: 2em; */
-    margin: 0 0.3em 0.5em 0.3em;
+    margin: 0 0.3em 0.3em 0.3em;
+    padding: 0.25em 0.4em;
     background-color: white;
     border: solid 1px rgb(0, 123, 255);
     border-radius: 0.5em;
