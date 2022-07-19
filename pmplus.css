@@ -1,0 +1,127 @@
+/* JS Modal */
+.modal-cont{
+    position: fixed; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 8;
+}
+.form-container{
+    position: relative; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal{
+    /* width: 18em; 
+    height: 25em;  */
+
+    border-radius: 1.5em; 
+    background-color: white;
+
+    overflow: hidden;
+}
+.modal-head{
+    padding: 0.5em;
+    font-size: 1.3em; 
+    color: white; 
+    text-align: center;
+    background-color: rgb(232, 82, 82);
+}
+.modal-configs{
+    /* height: 20em; */
+    padding: 0.4em 1em;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.conf-pm,
+.conf-pm-num,
+.conf-dow-c,
+.conf-checkbox-cont{
+    height: 3em;
+    width: 16em;
+
+    padding: 0.2em;
+    margin: 0.2em 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    border-radius: 0.8em;
+    background-color: #E5E9EC;
+}
+.conf-pm input[type="range"]{
+    width: 16em;
+    background-color: white;
+}
+.conf-pm-num{
+    flex-direction: row;
+    justify-content: center;
+}
+.conf-pm-num input{
+    margin-left: 0.2em;
+    border: solid 1px rgb(0, 123, 255);
+    border-radius: 0.5em;
+}
+.conf-checkbox-cont{
+    flex-direction: row;
+    justify-content: center;
+}
+.conf-dow-c{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.7em;
+}
+.conf-dow-c button{
+    margin: 0 0.3em 0.3em 0.3em;
+    padding: 0.25em 0.4em;
+    background-color: white;
+    border: solid 1px rgb(0, 123, 255);
+    border-radius: 0.5em;
+}
+
+.modal-cancel-button, 
+.modal-apply-button{
+    width: 8rem;
+    height: 4rem;
+
+    margin: 1rem 0.5rem;
+
+    font-size: 1.2em;
+
+    border: none;
+    border-radius: 3rem;
+}
+/* Hover */
+.conf-dow-c button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.modal-cancel-button:hover, 
+.modal-apply-button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+/* Active */
+.conf-dow-c button:active{
+    opacity: 0.5;
+}
+
+.modal-cancel-button:active, 
+.modal-apply-button:active{
+    opacity: 0.5;
+}

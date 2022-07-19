@@ -52,16 +52,24 @@ const modalConfigsCont = document.createElement('div');
 const dayOfWeekContainer = document.createElement('div');
 function addSession(){
     const modalContainer = document.createElement('div');
-    const formCont = document.createElement('form');
+    const formCont = document.createElement('div');
 
     const modalHeader = document.createElement('div');
     const modal = document.createElement('div');
-    // const modalSubmit   = document.createElement('div');
-
+    const modalApply = document.createElement('div');
     
     const confPmNumCont = document.createElement('div');
     const confPmNumContDesc = document.createElement('div');
     const confPmNumContInput = document.createElement('input');
+
+    const checkboxContainer = document.createElement('div');
+    
+    const checkboxRepeatingCont = document.createElement('div');
+    const checkboxRepeatingDesc = document.createElement('div');
+    const checkboxRepeatingInput = document.createElement('input');
+
+    const cancelButton = document.createElement('button');
+    const applyButton = document.createElement('button');
     
     modalHeader.textContent = 'Add session';
 
@@ -78,6 +86,9 @@ function addSession(){
     modalConfigsCont.classList.add('modal-configs');
     confPmNumCont.classList.add('conf-pm-num');
     dayOfWeekContainer.classList.add('conf-dow-c');
+    checkboxContainer.classList.add('conf-checkbox-cont');
+    cancelButton.classList.add('modal-cancel-button');
+    applyButton.classList.add('modal-apply-button');
 
     confPmNumCont.appendChild(confPmNumContDesc);
     confPmNumCont.appendChild(confPmNumContInput);
@@ -96,12 +107,20 @@ function addSession(){
     addWeekDayButton(5, 'Fri');
     addWeekDayButton(6, 'Sat');
 
+    cancelButton.textContent = 'Cancel';
+    applyButton.textContent = 'Add session';
+
+    modalApply.appendChild(cancelButton);
+    modalApply.appendChild(applyButton);
+
+    modalConfigsCont.appendChild(checkboxContainer);
     modalConfigsCont.appendChild(dayOfWeekContainer);
     modal.appendChild(modalHeader);
     modal.appendChild(modalConfigsCont);
 
     formCont.appendChild(modal);
-    // formCont.appendChild(modalSubmit);
+    formCont.appendChild(modalApply);
+
     modalContainer.appendChild(formCont);
     document.body.appendChild(modalContainer);
 }
