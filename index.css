@@ -82,6 +82,7 @@ main{
 .modal{
     /* width: 18em; 
     height: 25em;  */
+
     border-radius: 1.5em; 
     background-color: white;
 
@@ -96,7 +97,7 @@ main{
 }
 .modal-configs{
     /* height: 20em; */
-    padding: 0.2em 0.5em;
+    padding: 0.4em 1em;
     
     display: flex;
     flex-direction: column;
@@ -104,7 +105,8 @@ main{
     align-items: center;
 }
 .conf-pm,
-.conf-pm-num{
+.conf-pm-num,
+.conf-dow-c{
     height: 3em;
     width: 16em;
 
@@ -126,6 +128,24 @@ main{
 .conf-pm-num{
     flex-direction: row;
     justify-content: center;
+}
+.conf-pm-num input{
+    margin-left: 0.2em;
+    border: solid 1px rgb(0, 123, 255);
+    border-radius: 0.5em;
+}
+.conf-dow-c{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5em 0;
+}
+.conf-dow-c button{
+    /* width: 2em; */
+    margin: 0 0.3em 0.5em 0.3em;
+    background-color: white;
+    border: solid 1px rgb(0, 123, 255);
+    border-radius: 0.5em;
 }
 /* Header */
 .head-cherry-logo{
@@ -209,6 +229,11 @@ main{
     opacity: 0.8;
 }
 
+.conf-dow-c button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 /* Active */
 .head-cherry-logo:active,
 .head-change-mode-btn:active,
@@ -217,6 +242,9 @@ main{
     opacity: 0.5;
 }
 
+.conf-dow-c button:active{
+    opacity: 0.5;
+}
 /* Media queries */
 @media (max-width: 715px) {
     .head-cherry-logo{

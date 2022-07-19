@@ -77,7 +77,7 @@ function addSession(){
     modalHeader.classList.add('modal-head');
     modalConfigsCont.classList.add('modal-configs');
     confPmNumCont.classList.add('conf-pm-num');
-    dayOfWeekContainer.classList.add('conf-pm-num');
+    dayOfWeekContainer.classList.add('conf-dow-c');
 
     confPmNumCont.appendChild(confPmNumContDesc);
     confPmNumCont.appendChild(confPmNumContInput);
@@ -88,13 +88,13 @@ function addSession(){
     addRangeInput('Short break', 'shortbreak', 1, 45, 5);
     addRangeInput('Long break', 'longbreak', 1, 45, 5);
 
-    addWeekDayButton(0, 'sun');
-    addWeekDayButton(1, 'mon');
-    addWeekDayButton(2, 'tue');
-    addWeekDayButton(3, 'wed');
-    addWeekDayButton(4, 'thu');
-    addWeekDayButton(5, 'fri');
-    addWeekDayButton(6, 'sat');
+    addWeekDayButton(0, 'Wun');
+    addWeekDayButton(1, 'Mon');
+    addWeekDayButton(2, 'Tue');
+    addWeekDayButton(3, 'Wed');
+    addWeekDayButton(4, 'Thu');
+    addWeekDayButton(5, 'Fri');
+    addWeekDayButton(6, 'Sat');
 
     modalConfigsCont.appendChild(dayOfWeekContainer);
     modal.appendChild(modalHeader);
