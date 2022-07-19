@@ -52,12 +52,12 @@ const modalConfigsCont = document.createElement('div');
 const dayOfWeekContainer = document.createElement('div');
 function addSession(){
     const modalContainer = document.createElement('div');
-    const modal = document.createElement('form');
-
-    const modalBody = document.createElement('div');
-    // const modalButtons = document.createElement('div');
+    const formCont = document.createElement('form');
 
     const modalHeader = document.createElement('div');
+    const modal = document.createElement('div');
+    // const modalSubmit   = document.createElement('div');
+
     
     const confPmNumCont = document.createElement('div');
     const confPmNumContDesc = document.createElement('div');
@@ -72,6 +72,7 @@ function addSession(){
     confPmNumContInput.max = 45;
 
     modalContainer.classList.add('modal-cont');
+    formCont.classList.add('form-container');
     modal.classList.add('modal');
     modalHeader.classList.add('modal-head');
     modalConfigsCont.classList.add('modal-configs');
@@ -96,12 +97,12 @@ function addSession(){
     addWeekDayButton(6, 'sat');
 
     modalConfigsCont.appendChild(dayOfWeekContainer);
-    modalBody.appendChild(modalHeader);
-    modalBody.appendChild(modalConfigsCont);
+    modal.appendChild(modalHeader);
+    modal.appendChild(modalConfigsCont);
 
-    modal.appendChild(modalBody);
-    // modal.appendChild(modalButtons);
-    modalContainer.appendChild(modal);
+    formCont.appendChild(modal);
+    // formCont.appendChild(modalSubmit);
+    modalContainer.appendChild(formCont);
     document.body.appendChild(modalContainer);
 }
 

@@ -69,13 +69,19 @@ main{
     background-color: rgba(0, 0, 0, 0.6); 
     z-index: 8;
 }
-.modal{
+.form-container{
     position: relative; 
     top: 50%; 
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%); 
-    width: 18em; 
-    height: 25em; 
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal{
+    /* width: 18em; 
+    height: 25em;  */
     border-radius: 1.5em; 
     background-color: white;
 
