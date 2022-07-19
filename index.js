@@ -3,20 +3,13 @@ window.onresize = function() {
     document.body.height = window.innerHeight;
 }
 window.onresize();
-
-
-
-
-
-// Model
+//
 let sessions;
 let todaysSessions;
 let passedSessions;
 
 let addSessionDaysOfWeek = [];
-// Controller
-
-// View
+//
 function addRangeInput(title, shortTitle ,min, max, value){
     const rangeCont = document.createElement('div');
     const rangeTitle = document.createElement('div');
@@ -37,33 +30,37 @@ function addRangeInput(title, shortTitle ,min, max, value){
     modalConfigsCont.appendChild(rangeCont);
 }
 
+function addSessionChooseDays(ev){
+    let wdbutton = ev.target;
+    let num = wdbutton.dataset.dayOfWeek;
+    if(!addSessionDaysOfWeek.includes(num)){
+        addSessionDaysOfWeek.push(num);
+        wdbutton.style.backgroundColor = 'rgb(78, 171, 211)';
+    }
+    else{
+        addSessionDaysOfWeek = addSessionDaysOfWeek.filter((dayOfWeek)=>{
+            return dayOfWeek !== num;
+        });
+        wdbutton.style.backgroundColor = 'white';
+    }
+}
+
 function addWeekDayButton(num, shortName){
     const wdbutton = document.createElement('button');
 
     wdbutton.textContent = shortName;
-    wdbutton.id = 'wdb-' + num;
+    wdbutton.dataset.dayOfWeek = 'wdb-' + num;
 
     wdbutton.classList.add('add-weekday-btn');
 
     dayOfWeekContainer.appendChild(wdbutton);
 
-    wdbutton.onclick = function addSessionChoseDays(){
-        if(!addSessionDaysOfWeek.includes(num)){
-            addSessionDaysOfWeek.push(num);
-            wdbutton.style.backgroundColor = 'rgb(78, 171, 211)';
-        }
-        else{
-            addSessionDaysOfWeek = addSessionDaysOfWeek.filter((dayOfWeek)=>{
-                return dayOfWeek !== num;
-            });
-            wdbutton.style.backgroundColor = 'white';
-        }
-    }
-
+    wdbutton.onclick = addSessionChooseDays;
 }
 
 const modalConfigsCont = document.createElement('div');
 const dayOfWeekContainer = document.createElement('div');
+
 function addSession(){
     const modalContainer = document.createElement('div');
     const formCont = document.createElement('div');
@@ -76,9 +73,9 @@ function addSession(){
     const confPmNumContDesc = document.createElement('div');
     const confPmNumContInput = document.createElement('input');
 
-    const checkboxContainer = document.createElement('div');
+    const checkboxContainer = document.createElement('div');//
     
-    const checkboxRepeatingCont = document.createElement('div');
+    const checkboxRepeatingCont = document.createElement('div');//
     const checkboxRepeatingDesc = document.createElement('div');
     const checkboxRepeatingInput = document.createElement('input');
 
@@ -100,7 +97,7 @@ function addSession(){
     modalConfigsCont.classList.add('modal-configs');
     confPmNumCont.classList.add('conf-pm-num');
     dayOfWeekContainer.classList.add('conf-dow-c');
-    checkboxContainer.classList.add('conf-checkbox-cont');
+    checkboxContainer.classList.add('conf-checkbox-cont');//
     cancelButton.classList.add('modal-cancel-button');
     applyButton.classList.add('modal-apply-button');
 
@@ -127,8 +124,8 @@ function addSession(){
     cancelButton.textContent = 'Cancel';
     applyButton.textContent = 'Add session';
     
-    checkboxContainer.appendChild(checkboxRepeatingDesc);
-    checkboxContainer.appendChild(checkboxRepeatingInput);
+    checkboxContainer.appendChild(checkboxRepeatingDesc);//
+    checkboxContainer.appendChild(checkboxRepeatingInput);//
 
     modalApply.appendChild(cancelButton);
     modalApply.appendChild(applyButton);
