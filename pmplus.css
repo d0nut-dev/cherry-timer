@@ -94,7 +94,7 @@
     padding: 0.25em 0.4em;
     background-color: white;
     border: solid 1px rgb(0, 123, 255);
-    border-radius: 0.5em;
+    border-radius: 0.5em;;
 }
 
 .modal-cancel-button, 

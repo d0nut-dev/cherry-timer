@@ -13,7 +13,7 @@ let sessions;
 let todaysSessions;
 let passedSessions;
 
-
+let addSessionDaysOfWeek = [];
 // Controller
 
 // View
@@ -46,6 +46,20 @@ function addWeekDayButton(num, shortName){
     wdbutton.classList.add('add-weekday-btn');
 
     dayOfWeekContainer.appendChild(wdbutton);
+
+    wdbutton.onclick = function addSessionChoseDays(){
+        if(!addSessionDaysOfWeek.includes(num)){
+            addSessionDaysOfWeek.push(num);
+            wdbutton.style.backgroundColor = 'rgb(78, 171, 211)';
+        }
+        else{
+            addSessionDaysOfWeek = addSessionDaysOfWeek.filter((dayOfWeek)=>{
+                return dayOfWeek !== num;
+            });
+            wdbutton.style.backgroundColor = 'white';
+        }
+    }
+
 }
 
 const modalConfigsCont = document.createElement('div');
@@ -102,7 +116,7 @@ function addSession(){
     checkboxRepeatingDesc.textContent = 'Repeating';
     checkboxRepeatingInput.type = 'checkbox';
 
-    addWeekDayButton(0, 'Wun');
+    addWeekDayButton(0, 'Sun');
     addWeekDayButton(1, 'Mon');
     addWeekDayButton(2, 'Tue');
     addWeekDayButton(3, 'Wed');
