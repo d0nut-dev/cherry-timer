@@ -167,3 +167,16 @@
 .modal-apply-button:active{
     opacity: 0.5;
 }
+
+/* Responsive */
+@media(max-height: 500px){
+    .form-container{
+        margin-top: 1em;
+        margin-right: 1em;
+    }
+    .modal-configs{
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}
