@@ -4,9 +4,9 @@ window.onresize = function() {
 }
 window.onresize();
 //
-let sessions;
-let todaysSessions;
-let passedSessions;
+let sessions = [];
+let todaysSessions = [];
+let passedSessions = [];
 
 let addSessionDaysOfWeek = [];
 //
@@ -47,12 +47,17 @@ function addSessionChooseDays(ev){
 
 function addWeekDayButton(num, shortName){
     const wdbutton = document.createElement('button');
+    let currentDay = new Date().getDay();
 
     wdbutton.textContent = shortName;
-    wdbutton.dataset.dayOfWeek = 'wdb-' + num;
-
+    wdbutton.dataset.dayOfWeek = num;
+    
     wdbutton.classList.add('add-weekday-btn');
-
+    
+    if(currentDay === num){
+        addSessionDaysOfWeek.push(num);
+        wdbutton.style.backgroundColor = 'rgb(78, 171, 211)';
+    }
     dayOfWeekContainer.appendChild(wdbutton);
 
     wdbutton.onclick = addSessionChooseDays;
@@ -68,14 +73,12 @@ function addSession(){
     const modalHeader = document.createElement('div');
     const modal = document.createElement('div');
     const modalApply = document.createElement('div');
-    
+
     const confPmNumCont = document.createElement('div');
     const confPmNumContDesc = document.createElement('div');
     const confPmNumContInput = document.createElement('input');
-
-    const checkboxContainer = document.createElement('div');//
     
-    const checkboxRepeatingCont = document.createElement('div');//
+    const checkboxRepeatingCont = document.createElement('div');
     const checkboxRepeatingDesc = document.createElement('div');
     const checkboxRepeatingInput = document.createElement('input');
 
@@ -89,6 +92,15 @@ function addSession(){
     confPmNumContInput.id = 'input-pm-num';
     confPmNumContInput.min = 3;
     confPmNumContInput.max = 45;
+    confPmNumContInput.value = 3;
+    confPmNumContInput.oninput = function(){
+        if(confPmNumContInput.value < confPmNumContInput.min){
+            confPmNumContInput.value = confPmNumContInput.min;
+        }
+        else if(confPmNumContInput.value > confPmNumContInput.max){
+            confPmNumContInput.value = confPmNumContInput.max;
+        }
+    }
 
     modalContainer.classList.add('modal-cont');
     formCont.classList.add('form-container');
@@ -97,7 +109,7 @@ function addSession(){
     modalConfigsCont.classList.add('modal-configs');
     confPmNumCont.classList.add('conf-pm-num');
     dayOfWeekContainer.classList.add('conf-dow-c');
-    checkboxContainer.classList.add('conf-checkbox-cont');//
+    checkboxRepeatingCont.classList.add('conf-checkbox-cont');
     cancelButton.classList.add('modal-cancel-button');
     applyButton.classList.add('modal-apply-button');
 
@@ -112,6 +124,7 @@ function addSession(){
 
     checkboxRepeatingDesc.textContent = 'Repeating';
     checkboxRepeatingInput.type = 'checkbox';
+    checkboxRepeatingInput.id = 'conf-repeating';
 
     addWeekDayButton(0, 'Sun');
     addWeekDayButton(1, 'Mon');
@@ -122,14 +135,52 @@ function addSession(){
     addWeekDayButton(6, 'Sat');
 
     cancelButton.textContent = 'Cancel';
-    applyButton.textContent = 'Add session';
-    
-    checkboxContainer.appendChild(checkboxRepeatingDesc);//
-    checkboxContainer.appendChild(checkboxRepeatingInput);//
+    cancelButton.onclick = function(){
+        dayOfWeekContainer.innerHTML = '';
+        modalConfigsCont.innerHTML = '';
+        document.body.removeChild(modalContainer);
+    };
+    applyButton.textContent = 'Add';
+    applyButton.onclick = function(){
+        let numOfPomodorosIn = document.getElementById('input-pm-num').value;
+        let timePerPomodoroIn = document.getElementById('range-timeperpm').value;
+        let shortbreakIn = document.getElementById('range-shortbreak').value;
+        let longbreakIn = document.getElementById('range-longbreak').value;
+        let isRepeatingIn = document.getElementById('conf-repeating').checked;
+        sessions.push({
+            numOfPomodoros: numOfPomodorosIn,
+            timePerPomodoro: timePerPomodoroIn,
+            shortBreakTime: shortbreakIn,
+            longBreakTime: longbreakIn,
+
+            isRepeating: isRepeatingIn,
+
+            daysOfWeek: addSessionDaysOfWeek,
+            
+            finishedPomodoros: 0,
+
+            isPaused: false,
+            isBreak: false,
+            pauseTime: '',
+
+            startTime: '',
+            finishTime: '',
+            
+            isFinished: '',
+            isExpired: ''
+        });
+
+        dayOfWeekContainer.innerHTML = '';
+        modalConfigsCont.innerHTML = '';
+        document.body.removeChild(modalContainer);
+    }
+
+    checkboxRepeatingCont.appendChild(checkboxRepeatingDesc);
+    checkboxRepeatingCont.appendChild(checkboxRepeatingInput);
 
     modalApply.appendChild(cancelButton);
     modalApply.appendChild(applyButton);
-    modalConfigsCont.appendChild(checkboxContainer);
+    modalConfigsCont.appendChild(checkboxRepeatingCont);
     modalConfigsCont.appendChild(dayOfWeekContainer);
     modal.appendChild(modalHeader);
     modal.appendChild(modalConfigsCont);
