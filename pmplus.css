@@ -61,9 +61,27 @@
     border-radius: 0.8em;
     background-color: #E5E9EC;
 }
+.conf-pm{
+    position: relative;
+}
 .conf-pm input[type="range"]{
     width: 16em;
     background-color: white;
+}
+.conf-pm-range-output{
+    position: absolute;
+    top: 0.35em;
+    right: 1em; 
+
+    width: 1.6em;
+    
+    padding: 0 0.3em;
+
+    text-align: center;
+    color: white; 
+
+    background-color: rgb(64, 160, 233); 
+    border-radius: 1em;
 }
 .conf-pm-num{
     flex-direction: row;

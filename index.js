@@ -14,18 +14,27 @@ function addRangeInput(title, shortTitle ,min, max, value){
     const rangeCont = document.createElement('div');
     const rangeTitle = document.createElement('div');
     const rangeInput = document.createElement('input');
+    const rangeOutput = document.createElement('div');
 
     rangeTitle.textContent = title;
     rangeInput.type = 'range';
+    rangeInput.id = 'range-' + shortTitle;
     rangeInput.min = min;
     rangeInput.max = max;
     rangeInput.value = value;
-    rangeInput.id = 'range-' + shortTitle;
 
+    rangeOutput.textContent = rangeInput.value;
+    
+    rangeInput.oninput = function(){
+        rangeOutput.textContent = rangeInput.value;
+    }
+    
     rangeCont.classList.add('conf-pm');
+    rangeOutput.classList.add('conf-pm-range-output');
 
     rangeCont.appendChild(rangeTitle);
     rangeCont.appendChild(rangeInput);
+    rangeCont.appendChild(rangeOutput);
 
     modalConfigsCont.appendChild(rangeCont);
 }
