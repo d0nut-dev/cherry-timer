@@ -86,6 +86,7 @@ function addSession(){
     const confPmNumCont = document.createElement('div');
     const confPmNumContDesc = document.createElement('div');
     const confPmNumContInput = document.createElement('input');
+    const confPmNumContAlert = document.createElement('div');
     
     const checkboxRepeatingCont = document.createElement('div');
     const checkboxRepeatingDesc = document.createElement('div');
@@ -102,14 +103,7 @@ function addSession(){
     confPmNumContInput.min = 3;
     confPmNumContInput.max = 45;
     confPmNumContInput.value = 3;
-    confPmNumContInput.oninput = function(){
-        if(confPmNumContInput.value < confPmNumContInput.min){
-            confPmNumContInput.value = confPmNumContInput.min;
-        }
-        else if(confPmNumContInput.value > confPmNumContInput.max){
-            confPmNumContInput.value = confPmNumContInput.max;
-        }
-    }
+    confPmNumContAlert.textContent = 'Enter value between 3 and 45.';
 
     modalContainer.classList.add('modal-cont');
     formCont.classList.add('form-container');
@@ -117,6 +111,7 @@ function addSession(){
     modalHeader.classList.add('modal-head');
     modalConfigsCont.classList.add('modal-configs');
     confPmNumCont.classList.add('conf-pm-num');
+    confPmNumContAlert.classList.add('conf-pm-num-alert');
     dayOfWeekContainer.classList.add('conf-dow-c');
     checkboxRepeatingCont.classList.add('conf-checkbox-cont');
     cancelButton.classList.add('modal-cancel-button');
@@ -124,6 +119,7 @@ function addSession(){
 
     confPmNumCont.appendChild(confPmNumContDesc);
     confPmNumCont.appendChild(confPmNumContInput);
+    confPmNumCont.appendChild(confPmNumContAlert);
 
     modalConfigsCont.appendChild(confPmNumCont);
 
@@ -151,37 +147,45 @@ function addSession(){
     };
     applyButton.textContent = 'Add';
     applyButton.onclick = function(){
-        let numOfPomodorosIn = document.getElementById('input-pm-num').value;
+        let numOfPomodorosIn = document.getElementById('input-pm-num');
         let timePerPomodoroIn = document.getElementById('range-timeperpm').value;
         let shortbreakIn = document.getElementById('range-shortbreak').value;
         let longbreakIn = document.getElementById('range-longbreak').value;
         let isRepeatingIn = document.getElementById('conf-repeating').checked;
-        sessions.push({
-            numOfPomodoros: numOfPomodorosIn,
-            timePerPomodoro: timePerPomodoroIn,
-            shortBreakTime: shortbreakIn,
-            longBreakTime: longbreakIn,
 
-            isRepeating: isRepeatingIn,
-
-            daysOfWeek: addSessionDaysOfWeek,
-            
-            finishedPomodoros: 0,
-
-            isPaused: false,
-            isBreak: false,
-            pauseTime: '',
-
-            startTime: '',
-            finishTime: '',
-            
-            isFinished: '',
-            isExpired: ''
-        });
-
-        dayOfWeekContainer.innerHTML = '';
-        modalConfigsCont.innerHTML = '';
-        document.body.removeChild(modalContainer);
+        if(numOfPomodorosIn.value < 3 || numOfPomodorosIn.value > 45){
+            numOfPomodorosIn.style.borderColor = 'red';
+            numOfPomodorosIn.style.borderWidth = '2px';
+            confPmNumContAlert.style = 'display: block';
+        }
+        else{
+            sessions.push({
+                numOfPomodoros: numOfPomodorosIn.value,
+                timePerPomodoro: timePerPomodoroIn,
+                shortBreakTime: shortbreakIn,
+                longBreakTime: longbreakIn,
+    
+                isRepeating: isRepeatingIn,
+    
+                daysOfWeek: addSessionDaysOfWeek,
+                
+                finishedPomodoros: 0,
+    
+                isPaused: false,
+                isBreak: false,
+                pauseTime: '',
+    
+                startTime: '',
+                finishTime: '',
+                
+                isFinished: '',
+                isExpired: ''
+            });
+    
+            dayOfWeekContainer.innerHTML = '';
+            modalConfigsCont.innerHTML = '';
+            document.body.removeChild(modalContainer);
+        }
     }
 
     checkboxRepeatingCont.appendChild(checkboxRepeatingDesc);

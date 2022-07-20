@@ -61,8 +61,21 @@
     border-radius: 0.8em;
     background-color: #E5E9EC;
 }
-.conf-pm{
+.conf-pm,
+.conf-pm-num{
     position: relative;
+}
+.conf-pm-num-alert{
+    position: absolute; 
+    bottom: -5px; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: none;
+
+    font-size: 12px;
+    color: red;
+    white-space: nowrap;
 }
 .conf-pm input[type="range"]{
     width: 16em;
