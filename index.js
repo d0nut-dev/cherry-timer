@@ -103,7 +103,7 @@ function addSession(){
     confPmNumContInput.min = 3;
     confPmNumContInput.max = 45;
     confPmNumContInput.value = 3;
-    confPmNumContAlert.textContent = 'Enter value between 3 and 45.';
+    confPmNumContAlert.textContent = 'Enter number between 3 and 45.';
 
     modalContainer.classList.add('modal-cont');
     formCont.classList.add('form-container');
