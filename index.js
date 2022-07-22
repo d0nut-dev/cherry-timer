@@ -5,7 +5,8 @@ window.onresize = function() {
 window.onresize();
 //
 let sessions = [];
-let todaysSessions = [];
+let currentSession;
+let todaysSessions= [];
 let passedSessions = [];
 
 let addSessionDaysOfWeek = [];
@@ -174,18 +175,18 @@ function addSession(){
                 isPaused: false,
                 isBreak: false,
                 pauseTime: '',
-    
-                startTime: '',
+
                 finishTime: '',
                 
-                isFinished: '',
-                isExpired: ''
+                isFinished: false,
+                isDelayed: false
             });
     
             dayOfWeekContainer.innerHTML = '';
             modalConfigsCont.innerHTML = '';
             document.body.removeChild(modalContainer);
         }
+        main();
     }
 
     checkboxRepeatingCont.appendChild(checkboxRepeatingDesc);
@@ -206,7 +207,48 @@ function addSession(){
 }
 
 function main(){
+    const currentDay = new Date().getDay();
+
     const plusButton = document.getElementById('pm-plus');
     plusButton.onclick = addSession;
+
+    const currentContainer = document.getElementById('todays-sessions-cont');
+    const todaysContainer = document.getElementById('todays-cont');
+    const passedContainer = document.getElementById('passed-cont');
+    const delayedContainer = document.getElementById('delayed-cont');
+
+    sessions = sessions.filter((session)=>{
+        session.daysOfWeek.forEach((dayOfWeek) => {
+            console.log(typeof dayOfWeek);
+            console.log(typeof currentDay);
+            console.log(dayOfWeek === currentDay);
+            console.log(session.isRepeating);
+            if(dayOfWeek === currentDay && session.isRepeating === true){
+                // console.log(currentDay + ' ' + session.daysOfWeek)
+                todaysSessions.push(session);
+                return true;
+            }
+            else if(session.dayOfWeek === currentDay && session.isRepeating === false){
+                console.log('0');
+                todaysSessions.push(session);
+                return false;
+            }
+            else console.log('1');  
+        });
+    });
+
+    let currentSessionCont = document.createElement('div');
+    if(todaysSessions.length === 0){
+        currentSessionCont.textContent = 'No sessions to start. Please, add new session.'
+        // currentSessionCont.classList
+        currentSessionCont.style = 'padding: 2em;'
+        currentContainer.appendChild(currentSessionCont);
+    }
+    else{
+        currentSession = todaysSessions.pop();
+    }
+
+    // passedSessions
+
 }
 main();

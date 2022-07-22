@@ -61,7 +61,7 @@ main{
 }
 /* Header */
 .head-cherry-logo{
-    width: 40px;
+    width: 45px;
     display: flex;
     border-radius: 23px;
     background-color: white;
@@ -92,14 +92,24 @@ main{
     height: 20em;
     /* min-width: 20em; */
     margin: 0em 1em 0em 0em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     border-radius: 24px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
     background-color: #E5E9EC;
 }
 
 .pm-subcontainer{
-    height: 3em;
+    min-height: 3em;
     margin-top: 1em;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
     border-radius: 12px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
     background-color: #E5E9EC;
