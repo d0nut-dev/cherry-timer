@@ -61,7 +61,7 @@ main{
 }
 /* Header */
 .head-cherry-logo{
-    width: 2.8em;
+    width: 40px;
     display: flex;
     border-radius: 23px;
     background-color: white;

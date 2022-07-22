@@ -205,8 +205,8 @@ function addSession(){
     document.body.appendChild(modalContainer);
 }
 
-function render(){
+function main(){
     const plusButton = document.getElementById('pm-plus');
     plusButton.onclick = addSession;
 }
-render();
+main();

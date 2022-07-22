@@ -2,12 +2,6 @@
 /* Clock*/
 /* Containers */
 .time-container{
-    /* margin: 4em 2em; */
-    /* position: fixed;
-
-    top: 4em;
-    right: 2em; */
-
     display: flex;
     flex-direction: row;
 
@@ -211,6 +205,13 @@
     font-size: 24px;
     color: lightcoral;
 }
+/* .cl-progress-bar{
+    width: 100px;
+    height: 4px;
+
+    border-radius: 3px;
+    background-color: rgb(118, 211, 118);
+} */
 
 /* Controls */
 .time-start-btn,

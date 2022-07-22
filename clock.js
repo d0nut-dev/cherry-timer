@@ -152,38 +152,3 @@ startButton.onclick = function(){
 pauseButton.onclick = function(){
     isPaused = true;
 }
-
-let pmCurrent = {
-    numOfPomodoros: numOfPomodoros,
-    timePerPomodoro: timePerPomodoro,
-    miniBreakTime: miniBreakTime,
-    bigBreakTime: bigBreakTime,
-
-    isPaused: false,
-    
-    startTime: '',
-    isFinished: '',
-    finishTime: '',
-    
-    finishedPomodoros,
-    expirationDate,
-    isExpired
-}
-
-let pmFuture = [
-    {
-
-    }
-]
-
-let pmPassed = [
-    {
-
-    }
-]
-
-let pmSkipped = [
-    {
-
-    }
-]
