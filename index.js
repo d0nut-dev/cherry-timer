@@ -42,7 +42,7 @@ function addRangeInput(title, shortTitle ,min, max, value){
 
 function addSessionChooseDays(ev){
     let wdbutton = ev.target;
-    let num = wdbutton.dataset.dayOfWeek;
+    let num = Number(wdbutton.dataset.dayOfWeek);
     if(!addSessionDaysOfWeek.includes(num)){
         addSessionDaysOfWeek.push(num);
         wdbutton.style.backgroundColor = 'rgb(78, 171, 211)';
@@ -53,6 +53,7 @@ function addSessionChooseDays(ev){
         });
         wdbutton.style.backgroundColor = 'white';
     }
+    console.log(addSessionDaysOfWeek);
 }
 
 function addWeekDayButton(num, shortName){
@@ -132,6 +133,7 @@ function addSession(){
     checkboxRepeatingInput.type = 'checkbox';
     checkboxRepeatingInput.id = 'conf-repeating';
 
+    addSessionDaysOfWeek = [];
     addWeekDayButton(0, 'Sun');
     addWeekDayButton(1, 'Mon');
     addWeekDayButton(2, 'Tue');
@@ -160,28 +162,30 @@ function addSession(){
             confPmNumContAlert.style = 'display: block';
         }
         else{
-            sessions.push({
-                numOfPomodoros: numOfPomodorosIn.value,
-                timePerPomodoro: timePerPomodoroIn,
-                shortBreakTime: shortbreakIn,
-                longBreakTime: longbreakIn,
+            addSessionDaysOfWeek.forEach((dayOfWeek)=>{
+                sessions.push({
+                    sessionId: new Date().getTime() + '-' + dayOfWeek,
+                    numOfPomodoros: numOfPomodorosIn.value,
+                    timePerPomodoro: timePerPomodoroIn,
+                    shortBreakTime: shortbreakIn,
+                    longBreakTime: longbreakIn,
+        
+                    isRepeating: isRepeatingIn,
+        
+                    dayOfWeek: dayOfWeek,
+                    
+                    finishedPomodoros: 0,
+        
+                    isPaused: false,
+                    isBreak: false,
+                    pauseTime: '',
     
-                isRepeating: isRepeatingIn,
-    
-                daysOfWeek: addSessionDaysOfWeek,
-                
-                finishedPomodoros: 0,
-    
-                isPaused: false,
-                isBreak: false,
-                pauseTime: '',
-
-                finishTime: '',
-                
-                isFinished: false,
-                isDelayed: false
+                    finishTime: '',
+                    
+                    isFinished: false,
+                    isDelayed: false
+                });
             });
-    
             dayOfWeekContainer.innerHTML = '';
             modalConfigsCont.innerHTML = '';
             document.body.removeChild(modalContainer);
@@ -217,36 +221,63 @@ function main(){
     const passedContainer = document.getElementById('passed-cont');
     const delayedContainer = document.getElementById('delayed-cont');
 
+    // sessions = sessions.filter((session)=>{
+    //     session.daysOfWeek.forEach((dayOfWeek) => {
+    //         console.log(typeof dayOfWeek);
+    //         console.log(typeof currentDay);
+    //         console.log(dayOfWeek === currentDay);
+    //         console.log(session.isRepeating);
+    //         if(dayOfWeek === currentDay && session.isRepeating === true){
+    //             todaysSessions.push(session);
+    //             return true;
+    //         }
+    //         else if(dayOfWeek === currentDay && session.isRepeating === false){
+    //             if(session.daysOfWeek.length === 1){
+    //                 todaysSessions.push(session);
+    //                 return false;
+    //             }
+    //             else{
+    //                 let nonRepeatingSession = session;
+    //                 session.daysOfWeek = session.daysOfWeek.filter((dayOfWeek)=>{
+    //                     console.log('0');
+    //                     return dayOfWeek !== currentDay;
+    //                 });
+    //                 nonRepeatingSession.daysOfWeek = nonRepeatingSession.daysOfWeek.filter((dayOfWeek)=>{
+    //                     console.log(dayOfWeek + ' ' + currentDay);
+    //                     return dayOfWeek === currentDay;
+    //                 });
+    //                 console.log(nonRepeatingSession);
+    //                 todaysSessions.push(nonRepeatingSession);
+    //                 return true;
+    //             }
+    //         }
+    //         else{
+    //             return true;
+    //         }
+    //     });
+    // });
+
     sessions = sessions.filter((session)=>{
-        session.daysOfWeek.forEach((dayOfWeek) => {
-            console.log(typeof dayOfWeek);
-            console.log(typeof currentDay);
-            console.log(dayOfWeek === currentDay);
+        if(session.dayOfWeek === currentDay){
+            todaysSessions.push(session);
             console.log(session.isRepeating);
-            if(dayOfWeek === currentDay && session.isRepeating === true){
-                // console.log(currentDay + ' ' + session.daysOfWeek)
-                todaysSessions.push(session);
-                return true;
-            }
-            else if(session.dayOfWeek === currentDay && session.isRepeating === false){
-                console.log('0');
-                todaysSessions.push(session);
-                return false;
-            }
-            else console.log('1');  
-        });
+            return session.isRepeating;
+        }
+        else return true;
     });
 
     let currentSessionCont = document.createElement('div');
+    currentContainer.innerHTML = '';
     if(todaysSessions.length === 0){
         currentSessionCont.textContent = 'No sessions to start. Please, add new session.'
         // currentSessionCont.classList
         currentSessionCont.style = 'padding: 2em;'
-        currentContainer.appendChild(currentSessionCont);
     }
     else{
         currentSession = todaysSessions.pop();
+        currentSessionCont.textContent = 'Wait for update';
     }
+    currentContainer.appendChild(currentSessionCont);
 
     // passedSessions
 

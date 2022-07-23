@@ -90,7 +90,9 @@ function pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakT
                 timerContainer.style.fontSize = '12px';
                 timerContainer.textContent = `Congrats! You have finished ${finishedPomodoros} pomodoros!`;
                 //crs
-                // currentSession.finishTime = dateTimeStr;
+                // currentSession.finishedPomodoros = finishedPomodoros;
+                // currentSession.finishTime = dateStr;
+                // passedSessions.push(currentSession);
             }
             else{
                 timerContainer.style.color = 'lightcoral';
