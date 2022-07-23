@@ -1,4 +1,4 @@
-//IOS fix
+//IOS header fix
 window.onresize = function() {
     document.body.height = window.innerHeight;
 }
@@ -10,7 +10,7 @@ let todaysSessions= [];
 let passedSessions = [];
 
 let addSessionDaysOfWeek = [];
-//
+//PM-Plus
 function addRangeInput(title, shortTitle ,min, max, value){
     const rangeCont = document.createElement('div');
     const rangeTitle = document.createElement('div');
@@ -189,8 +189,10 @@ function addSession(){
             dayOfWeekContainer.innerHTML = '';
             modalConfigsCont.innerHTML = '';
             document.body.removeChild(modalContainer);
+            main();
+            console.log();
+            console.log();
         }
-        main();
     }
 
     checkboxRepeatingCont.appendChild(checkboxRepeatingDesc);
@@ -209,7 +211,7 @@ function addSession(){
     modalContainer.appendChild(formCont);
     document.body.appendChild(modalContainer);
 }
-
+//Main
 function main(){
     const currentDay = new Date().getDay();
 
@@ -266,18 +268,24 @@ function main(){
         else return true;
     });
 
-    let currentSessionCont = document.createElement('div');
-    currentContainer.innerHTML = '';
-    if(todaysSessions.length === 0){
-        currentSessionCont.textContent = 'No sessions to start. Please, add new session.'
-        // currentSessionCont.classList
-        currentSessionCont.style = 'padding: 2em;'
-    }
-    else{
-        currentSession = todaysSessions.pop();
-        currentSessionCont.textContent = 'Wait for update';
-    }
-    currentContainer.appendChild(currentSessionCont);
+    // let currentSessionCont = document.createElement('div');
+    // currentContainer.innerHTML = '';
+    // if(todaysSessions.length === 0 && currentSession === undefined){
+    //     currentSessionCont.textContent = 'No sessions to start. Please, add new session.'
+    //     // currentSessionCont.classList
+    //     currentSessionCont.style = 'padding: 2em;'
+    // }
+    // else{
+    //     currentSession = todaysSessions.pop();
+    //     currentSessionCont.textContent = 'Wait for update';
+
+    //     const csHead = document.createElement('div');
+    //     const csBody = document.createElement('div');
+
+    //     const csHeadTitle = document.createElement('div');
+    //     const csHeadDOW = document.createElement('div');
+    // }
+    // currentContainer.appendChild(currentSessionCont);
 
     // passedSessions
 

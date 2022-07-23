@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=false">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>cherry-timer</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./clock.css">
-    <link rel="stylesheet" href="./pmplus.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/clock.css">
+    <link rel="stylesheet" href="./styles/pmplus.css">
+    <link rel="stylesheet" href="./styles/current.css">
     <link rel="apple-touch-icon" href="./img/cherry.png">
     <script src="https://kit.fontawesome.com/c931cd2a0c.js" crossorigin="anonymous"></script>
-    <script src="./index.js" defer></script>
-    <script src="./clock.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/clock.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,6 +26,33 @@
     <main>
         <div class="upper-container">
             <div class="pm-current" id="todays-sessions-cont">
+                <div class="pm-current-head">
+                    <div class="pm-current-h-title">current</div>
+                    <div class="pm-current-h-dow">monday</div>
+                </div>
+                <div class="pm-current-body">
+                    <div class="pm-current-info-cont">
+                        <div class="pm-current-info">
+                            <div>goal:</div>
+                            <div>3 pomodoros</div>
+                            <div>[25 min for each]</div>
+                        </div>
+                        <div class="pm-current-info">
+                            <div>completed:</div>
+                            <div>1</div>
+                            <div>left:</div>
+                            <div>2 hours</div>
+                        </div>
+                        <div class="pm-current-info">
+                            <div>break: 1/4</div>
+                        </div>
+                    </div>
+                    <div class="pm-current-progress">
+                        <div class="pm-layer">
+                            <div class="pm-percent">100%</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="time-container">
                 <div class="time-addition-controls">

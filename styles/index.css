@@ -91,12 +91,14 @@ main{
     width: 64%;
     height: 20em;
     /* min-width: 20em; */
+    /* padding: 4px 4px; */
     margin: 0em 1em 0em 0em;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
     
+    overflow:hidden;
     border-radius: 24px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
     background-color: #E5E9EC;
