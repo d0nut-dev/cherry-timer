@@ -68,8 +68,18 @@
     color: #e85252;
 }
 
-@media (max-width: 840px) { 
+@media (max-width: 840px) {
+    .pm-current{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pm-current-head{
+    }
     .pm-current-body{
+        height: 90%;
+        width: 90%;
+        justify-content: space-around;
         flex-direction: column-reverse;
     }
 }
