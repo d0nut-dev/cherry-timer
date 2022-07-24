@@ -143,12 +143,6 @@ startButton.onclick = function(){
         isPaused = false;
         isUnpaused = true;
     }
-    //write fuction to create pomodoro
-    // pmCurrent.numOfPomodoros = numOfPomodoros;
-    // pmCurrent.timePerPomodoro = timePerPomodoro;
-    // pmCurrent.miniBreakTime = miniBreakTime;
-    // pmCurrent.bigBreakTime = bigBreakTime;
-    
     pomodoroTimer(numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
     setInterval(pomodoroTimer, 500, numOfPomodoros, timePerPomodoro, miniBreakTime, bigBreakTime);
 }
