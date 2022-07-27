@@ -109,15 +109,36 @@ main{
     margin-top: 1em;
 
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 
     border-radius: 12px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
     background-color: #E5E9EC;
+    overflow: hidden;
 }
 
-.pm-plus{
+.pm-subcontainer-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pm-subcontainer-title{
+    width: 4em;
+    height: 3em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: #e85252;
+}
+
+.pm-plus,
+.pm-subcontainer-show-btn{
     position: fixed;
     bottom: 0.3em;
     right: 0.4em;
@@ -129,11 +150,24 @@ main{
     border-radius: 55px;
     background-color: rgb(232, 82, 82);
 }
+
+.pm-subcontainer-show-btn{
+    position: static;
+    height: 2em;
+    width: 2em;
+
+    font-size: 24px;
+    /* border-radius: 50%; */
+
+    color: #e85252;
+    background-color: #E5E9EC;
+}
 /* Clear button styles */
 .head-main-btn,
 .head-change-mode-btn,
 .head-schedule-btn,
-.pm-plus{
+.pm-plus,
+.pm-subcontainer-show-btn{
 	border: none;
 	cursor: pointer;
 	outline: inherit;
@@ -148,7 +182,8 @@ main{
 .head-cherry-logo:hover,
 .head-change-mode-btn:hover,
 .head-schedule-btn:hover,
-.pm-plus:hover{
+.pm-plus:hover,
+.pm-subcontainer-show-btn:hover{
     opacity: 0.8;
     cursor: pointer;
 }
@@ -156,7 +191,8 @@ main{
 .head-cherry-logo:active,
 .head-change-mode-btn:active,
 .head-schedule-btn:active,
-.pm-plus:active{
+.pm-plus:active,
+.pm-subcontainer-show-btn:active{
     opacity: 0.5;
 }
 /* Media queries */
@@ -177,6 +213,9 @@ main{
     }
     .time-container{
         margin-left: -1em;
+    }
+    .lower-container{
+        padding-bottom: 1em;
     }
     .pm-subcontainer{
         min-width: 20em;
