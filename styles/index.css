@@ -38,7 +38,9 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: rgba(202, 83, 83, 0.422);
+
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .hd-container{
