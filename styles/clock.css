@@ -1,5 +1,19 @@
-
 /* Clock*/
+:root{
+    --color-back: white;
+    /* --color-back: rgb(37, 42, 47); */
+
+    --color-back-secondary: #E5E9EC;
+    /* --color-back-secondary: rgba(55, 61, 76, 0.841); */
+
+    --shadow: 3px 3px 2px rgba(0, 0, 0, 0.234);
+    /* --shadow: 3px 3px 2px rgba(0, 0, 0, 0.6); */
+
+    --acl-s-color: red;
+    /* --acl-s-color: lightcoral; */
+    --acl-h-color: black;
+    /* --acl-h-color: white */
+}
 /* Containers */
 .time-container{
     display: flex;
@@ -15,11 +29,11 @@
     justify-content: space-around;
     align-items: center;
 
-    background-color: #E5E9EC;
+    background-color: var(--color-back-secondary);
     /* background-color: rgba(0, 0, 0, 0.3); */
     border-radius: 24px;
 
-    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.234);
+    box-shadow: var(--shadow);
     /* box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6); */
 }
 
@@ -135,7 +149,7 @@
     height: 80px;
     width: 80px;
 
-    background-color: white;
+    background-color: var(--color-back);
     /* background-color: rgb(37, 42, 47); */
     border-radius: 40px;
 
@@ -166,7 +180,7 @@
     
     transform-origin: bottom;
 
-    background-color: red;
+    background-color: var(--acl-s-color);
     /* background-color: lightcoral; */
     z-index: 5;
 }
@@ -187,7 +201,7 @@
     
     transform-origin: bottom;
 
-    background-color: black;
+    background-color: var(--acl-h-color);
     /* background-color: white; */
     z-index: 3;
 }
@@ -228,7 +242,7 @@
 .time-pause-btn,
 .time-stop-btn,
 .time-sound-btn{
-    color: white;
+    color: var(--color-text);
 }
 
 .time-start-btn,
