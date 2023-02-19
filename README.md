@@ -1,6 +1,6 @@
 # cherry-timer
 
-Abandoned and in the process of rewriting.
+Abandoned and will be rewritten.
 
 _May not display correctly for FireFox users._
 
